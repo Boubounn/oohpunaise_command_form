@@ -1,17 +1,15 @@
-// const path = require('path');
+const express = require('express')
+const port = 8000
+const app = express()
+ 
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+})
+function onServerStart(callback) {
+    if (callback) {
+        console.log(`Server running at :  http://localhost:${port}/ `);
+    }
+}
 
-// const http = require('http');
 
-// const hostname = '127.0.0.1';
-// const port = 3000;
-
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader('Content-Type', 'text/html');
-//   res.end(path.basename('index.js'));
-// });
-
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://localhost:${port}/`);
-// });
-
+onServerStart(app.listen(port));
