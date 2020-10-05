@@ -1,0 +1,44 @@
+<html lang="fr">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<body>
+    <div id="preview">
+        <h1>Commandes</h1><br>
+
+        <div v-for="info in infos">
+            <ul>
+                <li>
+                    <h3>Commande: <span>{{info.order}}</span></h3>
+                </li>
+                <li>{{info.price}}€</li>
+                <li>Nb of Person: {{info.nbOfPerson}}</li>
+                <li>Pets/Babies: {{info.petsAndBabies}}</li>
+                <li>Type: {{info.type}}</li>
+                <li>Background: {{info.background}}</li>
+                <li>Details: {{info.details}}</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+<script>
+    var vn = new Vue({
+        el: '#preview',
+        data() {
+            return {
+                infos: null
+            }
+        },
+        mounted() {
+            axios
+                .get('http://localhost:8000/orders')
+                .then(response => this.infos = response.data);
+        }
+    });
+</script>
+</head>
+
+</html>

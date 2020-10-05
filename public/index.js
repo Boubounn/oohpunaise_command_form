@@ -14,30 +14,12 @@ const PRICES = {
         church: 0,
         sky: 0,
     }
-}
-var orderTable = [];
+};
 
-function serializeOrder(order) {
-    var serializedOrder = {};
-    order.forEach(el => {
-        serializedOrder[el.name] = el.value;
-        return serializedOrder
-    })
-    addPrice(serializedOrder)
-    return serializedOrder
-}
-
-
-function createOrder() {
-    let order = $('form').serializeArray();
-    console.log(order);
-    
-    return order;
-}
 
 function addPrice(order) {
     Object.assign(order, {price: computePrice(PRICES, order.nbOfPerson, order.petsAndBabies, order.type, order.background)});
-}
+};
 
 function computePrice(prices, person, petsAndBabies, bodyType, background) {
     var increaseFullBodyPrice = 12;
@@ -57,20 +39,21 @@ function computePrice(prices, person, petsAndBabies, bodyType, background) {
 
 };
 
-function addOrderToTable(order) {
-    orderTable.push(order);
-}
+function textModel(orders) {
+    return orders.map(order => 
+        String(`Commande: ${order.order}
+        ${order.price}€
+        Nb of Person: ${order.nbOfPerson}
+        Pets/Babies: ${order.petsAndBabies}
+        Type: ${order.type}
+        Background: ${order.background}
+        Details: ${order.details}\n\n`
+    ));
+};
 
-$("#next").click(() => {
-    let initialOrder = createOrder();
-    let order = serializeOrder(initialOrder);
-    addOrderToTable(order);
-    document.getElementById('orderForm').reset();
-    // console.log(order);
-    // console.log(localStorage);
-});
+module.exports = {
+    addPrice,
+    textModel
+};
 
-$('#submit').click(() => {
-   let orderTableJSON = JSON.stringify(orderTable);
-    console.log(orderTableJSON);
-})
+
