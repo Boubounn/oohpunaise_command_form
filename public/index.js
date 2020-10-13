@@ -41,7 +41,7 @@ function computePrice(prices, person, petsAndBabies, bodyType, background) {
 
 function textModel(orders) {
     return orders.map(order => 
-        String(`Commande: ${order.order}
+        String(`Commande: #${order.order}
         ${order.price}€
         Nb of Person: ${order.nbOfPerson}
         Pets/Babies: ${order.petsAndBabies}

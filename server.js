@@ -26,7 +26,7 @@ app.post('/next', (req, res) => {
     let order = req.body;
     index.addPrice(order);
     orderTable.push(order)
-    console.log('posted');
+    console.log('recorded order #' + order.order);
     res.sendFile(__dirname + '/public/index.html', {
         headers: {
             'Content-Type': 'text/html'
