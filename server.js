@@ -44,7 +44,7 @@ app.get('/orders', (req, res) => {
 
 app.get('/done', (req, res) => {
     text = index.textModel(orderTable);
-    fs.writeFile('order.txt', text, function (err) {
+    fs.writeFile('order.txt', text.toString(), function (err) {
         if (err) return console.log(err);
         console.log('order.txt created');
     });
