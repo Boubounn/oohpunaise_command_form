@@ -49,6 +49,7 @@ app.get('/done', (req, res) => {
         console.log('order.txt created');
     });
     res.end();
+    // un fichier "order.txt" sera créé dans le dossier racine
 });
 
 onServerStart(app.listen(port));
