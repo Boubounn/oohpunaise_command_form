@@ -11,4 +11,4 @@ Installation : - Installer les package avec la commande "npm i"
 
 Démarrage : - Effectuer la commande "npm start" puis suivre le lien en faisant ctrl + clic droit ou entrer "localhost:8000" dans l'URL
 
-Utilisation : Remplir le formulaire et appuyer sur "Record" puis cliquer sur l'icone en forme d'oeil pour avoir une prévisualisation, ensuite cliquer sur "Download" pour générer le fichier "order.txt".
+Utilisation : Remplir le formulaire et appuyer sur "Record" puis cliquer sur l'icone en forme d'oeil pour avoir une prévisualisation, ensuite cliquer sur "Download" pour générer le fichier "order.txt", il sera dans le dossier racine.
